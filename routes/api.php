@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource("user", \App\Http\Controllers\UserController::class);
+//All user route
+Route::resource("user", \App\Http\Controllers\UserController::class)
+    ->missing('\App\Services\MySweetAbility::missingResponse');
+
+//All product route
+Route::resource("product", \App\Http\Controllers\ProductController::class)
+    ->missing('\App\Services\MySweetAbility::missingResponse');
+
 Route::group(['prefix' => "auth", "controller" => \App\Http\Controllers\AuthController::class], function(){
     Route::post("login", "login");
 });

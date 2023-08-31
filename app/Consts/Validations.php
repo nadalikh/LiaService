@@ -9,5 +9,7 @@ class Validations
     const STRING = "string";
     const PASSWORD = "string|confirmed||min:6";
     const USER_UNIQUE = "unique:users,email";
+    const NUMERIC = "numeric";
+    const POSITIVE_NUMBER = "numeric|gt:0";
 
 }
