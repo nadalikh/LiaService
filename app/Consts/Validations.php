@@ -8,5 +8,6 @@ class Validations
     const EMAIL = "email|regex:/^[-_a-zA-Z0-9.+!%]*@[a-zA-z]*.[a-zA-Z]*$/";
     const STRING = "string";
     const PASSWORD = "string|confirmed||min:6";
+    const USER_UNIQUE = "unique:users,email";
 
 }

@@ -44,6 +44,14 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Is used as the relation of a user and the orders
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|\Jenssegers\Mongodb\Relations\HasMany
+     */
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

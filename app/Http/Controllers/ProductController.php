@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Stores\StoreUserRequest;
-use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,55 +14,51 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-    }
 
+    }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
-        $body = $request->only('name', 'email', 'password');
-        $body['password'] = Hash::make($body['password']);
-        $user = User::create($body);
-        return $this->respondWithSuccess($user);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+
     }
 }
