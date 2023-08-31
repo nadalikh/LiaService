@@ -47,26 +47,18 @@ class Product extends TestCase
     }
 
     /**
-     * Delete test for product
+     * Get a product by id.
      * @return void
      */
-    public function test_delete(){
+    public function test_get_by_id(){
         $product = \App\Models\Product::all()->first();
-        $response = $this->delete("api/product/" . $product->id);
-        $response->assertStatus(200);
-    }
-
-    /**
-     * Invalid delete test for product
-     * @return void
-     */
-    public function test_invalid_delete(){
-        $response = $this->delete("api/product/21");
-        $response->assertStatus(404);
+        $response = $this->get("api/product/" . $product->id);
         $response->assertJsonStructure([
-            "errors"
+            "name",
+            "inventory",
+            "price",
+            "orders"
         ]);
-
     }
 
     /**
@@ -128,5 +120,27 @@ class Product extends TestCase
             ]
         ]);
         $response->assertStatus(400);
+    }
+    /**
+     * Delete test for product
+     * @return void
+     */
+    public function test_delete(){
+        $product = \App\Models\Product::all()->first();
+        $response = $this->delete("api/product/" . $product->id);
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Invalid delete test for product
+     * @return void
+     */
+    public function test_invalid_delete(){
+        $response = $this->delete("api/product/21");
+        $response->assertStatus(404);
+        $response->assertJsonStructure([
+            "errors"
+        ]);
+
     }
 }
