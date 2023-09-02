@@ -33,5 +33,6 @@ SET UP PROJECT
 3)php artisan serve
 </p>
 <p>
-4)php artisan migrate</p>
-![Image description](https://github.com/nadalikh/LiaService/tree/main/public/images/1.png)
+4)php artisan migrate
+</p>
+<img src="https://github.com/nadalikh/LiaService/tree/main/public/images/1.png">
