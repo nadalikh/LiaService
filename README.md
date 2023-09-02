@@ -23,8 +23,16 @@ Redis setup</h2>
 
 <h2>
 SET UP PROJECT
-1)composer install
-2)php artisan jwt:secret
-3)php artisan serve
-4)php artisan migrate
 </h2>
+<p>1)composer install
+</p>
+<p>
+2)php artisan jwt:secret
+</p>
+<p>
+3)php artisan serve
+</p>
+<p>
+4)php artisan migrate</p>
+![Image description](https://github.com/nadalikh/LiaService/tree/main/public/1.png)![Image description](https://github.com/nadalikh/LiaService/tree/main/public/1.png)
+![Image description](https://github.com/nadalikh/LiaService/tree/main/public/1.png)![Image description](https://github.com/nadalikh/LiaService/tree/main/public/2.png)
