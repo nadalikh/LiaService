@@ -35,4 +35,4 @@ SET UP PROJECT
 <p>
 4)php artisan migrate
 </p>
-<img src="https://github.com/nadalikh/LiaService/public/images/1.png">
+![asfsd](https://github.com/nadalikh/LiaService/blob/main/public/images/1.png)
