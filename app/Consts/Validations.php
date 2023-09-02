@@ -10,6 +10,7 @@ class Validations
     const PASSWORD = "string|confirmed||min:6";
     const USER_UNIQUE = "unique:users,email";
     const NUMERIC = "numeric";
+    const ARRAY = "array";
     const POSITIVE_NUMBER = "numeric|gt:0";
-
+    const EXISTENCE_PRODUCT = "exists:products,_id";
 }

@@ -17,10 +17,10 @@ class Order extends Model
 
     /**
      * THe relation between an order and it's products.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany|\Jenssegers\Mongodb\Relations\BelongsToMany
      */
     public function products(){
-        return $this->belongsToMany(Product::class, "order_product");
+        return $this->belongsToMany(Product::class, "product_ids");
     }
 
     /**
@@ -30,5 +30,4 @@ class Order extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-
 }

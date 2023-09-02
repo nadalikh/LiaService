@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Requests\Stores;
+namespace App\Http\Requests\Updates;
 
 use App\Consts\Validations;
+use App\Rules\ProductExistence;
+use App\Rules\ProductQuantityInOrder;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreProductRequest extends FormRequest
+class UpdateOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +19,11 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->check();
+    }
+    protected function failedAuthorization()
+    {
+        throw new AuthenticationException( response()->json(["errors" => "unauthorized"], 403));
     }
 
     protected function failedValidation(Validator $validator)
@@ -34,9 +41,8 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            "price" => Validations::REQUIRED ."|". Validations::POSITIVE_NUMBER,
-            "inventory" => Validations::REQUIRED ."|". Validations::POSITIVE_NUMBER,
-            "name" => Validations::REQUIRED ."|". Validations::STRING
+            "products_quantity.*.quantity" => Validations::POSITIVE_NUMBER,
+            "products_quantity" => [Validations::REQUIRED , Validations::ARRAY, new ProductExistence(), new ProductQuantityInOrder()],
         ];
     }
 }

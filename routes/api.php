@@ -22,6 +22,9 @@ Route::resource("user", \App\Http\Controllers\UserController::class)
 Route::resource("product", \App\Http\Controllers\ProductController::class)
     ->missing('\App\Services\MySweetAbility::missingResponse');
 
+//All orders route
+Route::resource("order", \App\Http\Controllers\OrderController::class)
+    ->missing('\App\Services\MySweetAbility::missingResponse');
 Route::group(['prefix' => "auth", "controller" => \App\Http\Controllers\AuthController::class], function(){
     Route::post("login", "login");
 });

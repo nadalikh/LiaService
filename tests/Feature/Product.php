@@ -141,6 +141,5 @@ class Product extends TestCase
         $response->assertJsonStructure([
             "errors"
         ]);
-
     }
 }
