@@ -34,5 +34,5 @@ SET UP PROJECT
 </p>
 <p>
 4)php artisan migrate</p>
-![Image description](https://github.com/nadalikh/LiaService/tree/main/public/1.png)
-![Image description](https://github.com/nadalikh/LiaService/tree/main/public/2.png)
+![Image description](https://github.com/nadalikh/LiaService/tree/main/public/images/1.png)
+![Image description](https://github.com/nadalikh/LiaService/tree/main/public/images/2.png)
